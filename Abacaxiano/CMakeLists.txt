@@ -7,14 +7,16 @@ set(HEADER_FILES
     "include/Abacaxiano/Core/Context.h"
     "include/Abacaxiano/Core/Application.h"
     "include/Abacaxiano/Core/EntryPoint.h"
-    "include/Abacaxiano/Abacaxiano.h"
     "include/Abacaxiano/Core/Randy.h"
+    "include/Abacaxiano/Core/Window.h"
+    "include/Abacaxiano/Abacaxiano.h"
 )
 
 set(CPP_FILES
     "src/Core/Logger.cpp"
     "src/Core/Application.cpp"
      "src/Core/Randy.cpp"
+     "src/Core/Window.cpp"
 )
 
 #Add the executable

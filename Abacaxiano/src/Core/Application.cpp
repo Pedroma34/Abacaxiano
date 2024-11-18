@@ -4,7 +4,8 @@
 namespace abx {
 	Application::Application() :
 		m_logger(),
-		m_randy()
+		m_randy(),
+		m_window("Abacaxiano", 1280, 720)
 	{
 		ABX_CORE_LOG_INFO("Application initialized.");
 	}
@@ -14,8 +15,12 @@ namespace abx {
 	}
 
 	void Application::Run() {
-		while (true){
+		while (!m_window.IsDone()){
+			m_window.Update();
 
+			m_window.Clear();
+
+			m_window.Display();
 		}
 	}
 }

@@ -79,9 +79,9 @@ using Ref = std::shared_ptr<T>;
 template <typename T>
 using WeakRef = std::weak_ptr<T>;
 template <typename T>
-using Scope = std::unique_ptr<T>;
+using Unique = std::unique_ptr<T>;
 
 template <typename T, typename... Args>
 auto MakeRef(Args&&... args) { return std::make_shared<T>(std::forward<Args>(args)...); }
 template <typename T, typename... Args>
-auto MakeScope(Args&&... args) { return std::make_unique<T>(std::forward<Args>(args)...); }
+auto MakeUnique(Args&&... args) { return std::make_unique<T>(std::forward<Args>(args)...); }
