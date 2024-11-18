@@ -8,11 +8,13 @@ set(HEADER_FILES
     "include/Abacaxiano/Core/Application.h"
     "include/Abacaxiano/Core/EntryPoint.h"
     "include/Abacaxiano/Abacaxiano.h"
+    "include/Abacaxiano/Core/Randy.h"
 )
 
 set(CPP_FILES
     "src/Core/Logger.cpp"
     "src/Core/Application.cpp"
+     "src/Core/Randy.cpp"
 )
 
 #Add the executable
