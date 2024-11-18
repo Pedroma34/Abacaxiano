@@ -25,6 +25,7 @@
 
 #ifdef _WIN64
 	#define ABX_WINDOWS
+	#define NOMINMAX// Windows.h defines min and max macros, which can cause conflicts with std::min and std::max
 	#include <Windows.h>
 	#define POPUP_ERROR(x) MessageBoxA(NULL, x, "ERROR", MB_OK)
 #elif defined(__linux__) && defined(__x86_64__) || defined(__linux__) && defined(__arm64__)
