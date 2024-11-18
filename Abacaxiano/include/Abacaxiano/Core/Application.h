@@ -2,6 +2,7 @@
 #include "Core/Config.h"
 #include "Core/Logger.h"
 #include "Core/Randy.h"
+#include "Core/Window.h"
 
 namespace abx {
 	class Application {
@@ -13,6 +14,7 @@ namespace abx {
 	private:
 		Logger m_logger;
 		Randy  m_randy;
+		Window m_window;
 	};
 
 	Application* CreateApplication(); // To be defined in CLIENT
