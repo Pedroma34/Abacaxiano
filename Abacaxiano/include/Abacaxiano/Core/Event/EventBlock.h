@@ -18,7 +18,6 @@ namespace abx {
 		  * Owned by Event Container, which is handled by the Event Manager.
 	*/
 	class EventBlock {
-		friend class EventManager;
 	public:
 		/*
 		  * Sets block for any event type
@@ -56,6 +55,7 @@ namespace abx {
 		const EventMethod GetMethod() const;
 
 	protected:
+		friend class EventManager;
 		sf::Event::EventType m_eventType;
 		sf::Keyboard::Key	 m_keyCode;
 		sf::Mouse::Button	 m_mouseButton;

@@ -1,5 +1,6 @@
 #include "Core/Event/EventManager.h"
 #include "Core/Logger.h"
+#include "Core/Logger.h"
 
 namespace abx {
 	EventManager::EventManager() :
@@ -46,8 +47,10 @@ namespace abx {
 		auto removed = std::remove_if(m_events.begin(), m_events.end(), [](const EventCallback& l_event) {
 			return l_event.block.expired();
 			});
-		if (removed != m_events.end())
+		if (removed != m_events.end()) {
+			//ABX_CORE_LOG_INFO(std::string("Weak Ref expired. Event removed: " + removed->block.lock()->GetHandle()).c_str());
 			m_events.erase(removed, m_events.end());
+		}
 
 	}
 	void EventManager::HandleInput() {
@@ -82,6 +85,6 @@ namespace abx {
 				ABX_CORE_LOG_WARN("Event already bound to function.");
 				return;
 			}
-		m_events.emplace_back();
+		m_events.emplace_back(l_eventBlock, l_function);
 	}
 }

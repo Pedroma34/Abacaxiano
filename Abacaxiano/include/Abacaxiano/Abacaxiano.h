@@ -8,3 +8,8 @@
 #include "Core/Window.h"
 #include "Core/EntryPoint.h"
 #include "Core/Context.h"
+
+//Core/Event
+#include "Core/Event/EventManager.h"
+#include "Core/Event/EventBlock.h"
+#include "Core/Event/EventContainer.h"

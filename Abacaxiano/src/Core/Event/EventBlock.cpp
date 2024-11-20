@@ -8,9 +8,11 @@ namespace abx {
 		m_keyCode(sf::Keyboard::Key::Unknown),
 		m_mouseButton(sf::Mouse::Button::ButtonCount),
 		m_handle(l_handle),
-		m_method(l_method) {
+		m_method(l_method) 
+	{
 		// We want to invalidate event key code, mouse buttons, joystick, etc,
 		// since we want to call our callback with no specific key or mouse button
+		ABX_CORE_LOG_INFO(std::string("Block created: " + l_handle).c_str());
 	}
 
 	EventBlock::EventBlock(const std::string& l_handle, const sf::Event::EventType l_eventType, const sf::Keyboard::Key l_keyCode, const EventMethod l_method) :
@@ -24,6 +26,7 @@ namespace abx {
 			POPUP_ERROR("Invalid event type for key code");
 			exit(EXIT_FAILURE);
 		}
+		ABX_CORE_LOG_INFO(std::string("Block created: " + l_handle).c_str());
 	}
 
 	EventBlock::EventBlock(const std::string& l_handle, const sf::Event::EventType l_eventType, const sf::Mouse::Button l_mouseButton, const EventMethod l_method) :
@@ -37,6 +40,7 @@ namespace abx {
 			POPUP_ERROR("Invalid event type for mouse button");
 			exit(EXIT_FAILURE);
 		}
+		ABX_CORE_LOG_INFO(std::string("Block created: " + l_handle).c_str());
 	}
 
 	EventBlock::EventBlock(EventBlock&& l_other) noexcept :

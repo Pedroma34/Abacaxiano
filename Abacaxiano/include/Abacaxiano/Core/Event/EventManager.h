@@ -35,7 +35,7 @@ namespace abx {
 		friend class Window;
 		friend class EventContainer;
 		struct EventCallback {
-			EventCallback() : block(), callback() {}
+			EventCallback(Ref<EventBlock> l_block, const std::function<void(const sf::Event&)> l_callback) : block(l_block), callback(l_callback) {}
 			EventCallback(const EventCallback&) = delete;
 			EventCallback& operator=(const EventCallback&) = delete;
 			EventCallback(EventCallback&& l_other) noexcept = default;
