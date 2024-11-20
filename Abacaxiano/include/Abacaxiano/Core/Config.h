@@ -49,10 +49,6 @@
 	#endif
 #else // DIST build
 	#define ABX_DIST
-	#define LOG_CORE_INFO(x)
-	#define LOG_CORE_WARN(x)
-	#define LOG_CORE_ERROR(x)
-	#define LOG_CORE_CRITICAL(x)
 #endif
 
 #define ABX_EXIT_PROGRAM exit(1);
