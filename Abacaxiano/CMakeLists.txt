@@ -1,23 +1,9 @@
 # Project name
 project(Abacaxiano)
 
-set(HEADER_FILES
-    "include/Abacaxiano/Core/Config.h"
-    "include/Abacaxiano/Core/Logger.h"
-    "include/Abacaxiano/Core/Context.h"
-    "include/Abacaxiano/Core/Application.h"
-    "include/Abacaxiano/Core/EntryPoint.h"
-    "include/Abacaxiano/Core/Randy.h"
-    "include/Abacaxiano/Core/Window.h"
-    "include/Abacaxiano/Abacaxiano.h"
-)
-
-set(CPP_FILES
-    "src/Core/Logger.cpp"
-    "src/Core/Application.cpp"
-     "src/Core/Randy.cpp"
-     "src/Core/Window.cpp"
-)
+#Get all the cpp files inside src folder
+file(GLOB_RECURSE CPP_FILES "src/*.cpp")
+file(GLOB_RECURSE HEADER_FILES "include/*.h")
 
 #Add the executable
 add_library(${PROJECT_NAME}

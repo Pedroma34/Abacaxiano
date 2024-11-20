@@ -53,3 +53,6 @@ message(STATUS "CMAKE_CXX_FLAGS_${CMAKE_BUILD_TYPE}: ${CMAKE_CXX_FLAGS_${CMAKE_B
 # Add subdirectories (subprojects)
 add_subdirectory(Client)
 add_subdirectory(Abacaxiano)
+
+#Set client as the startup project for Visual Studio users
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT Client)
