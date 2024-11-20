@@ -15,21 +15,22 @@ namespace abx {
 		m_title(l_title), 
 		m_width(l_width), m_height(l_height), 
 		m_isDone(false),
-		m_window()
+		m_window(),
+		m_eventManager()
 	{
 		Context::window = this;
 		Create(m_title, m_width, m_height, m_window);
 		ABX_CORE_LOG_INFO(std::string("Window created: TITLE[" + m_title + "] WIDTH[" + std::to_string(m_width) + "] HEIGHT[" + std::to_string(m_height) + "]"));
 	}
 
-	Window::~Window() {}
-
 	void Window::Update() {
 		sf::Event event;
 		while (m_window.pollEvent(event)) {
+			m_eventManager.HandleInput(event);
 			if (event.type == sf::Event::Closed)
 				m_isDone = true;
 		}
+		m_eventManager.HandleInput();
 	}
 
 	void Window::Clear(sf::Color l_color) {
@@ -58,6 +59,10 @@ namespace abx {
 
 	sf::RenderWindow* Window::GetRenderWindow() {
 		return &m_window;
+	}
+
+	EventManager* Window::GetEventManager() {
+		return &m_eventManager;
 	}
 
 }

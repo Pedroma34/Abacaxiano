@@ -21,6 +21,7 @@ target_link_libraries(${PROJECT_NAME}
     Abacaxiano
     sfml-graphics
     ${OPENGL_LIBRARIES}
+    spdlog::spdlog_header_only
 )
 
 # Include header files

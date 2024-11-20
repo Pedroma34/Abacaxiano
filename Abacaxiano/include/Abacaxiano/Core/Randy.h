@@ -7,6 +7,7 @@ namespace abx {
 	public:
 		Randy();
 		~Randy();
+		//TODO: No copy and no move
 
 		void SetSeed(const int64_t l_seed);
 		const int64_t GenerateInt(const int64_t l_min, const int64_t l_max);

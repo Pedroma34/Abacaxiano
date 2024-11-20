@@ -4,12 +4,14 @@ project(Abacaxiano)
 #Get all the cpp files inside src folder
 file(GLOB_RECURSE CPP_FILES "src/*.cpp")
 file(GLOB_RECURSE HEADER_FILES "include/*.h")
+file(GLOB_RECURSE INL_FILES "include/*.inl")
 
 #Add the executable
 add_library(${PROJECT_NAME}
     STATIC # this means that the library is static
     ${CPP_FILES} 
     ${HEADER_FILES}
+    ${INL_FILES}
 )
 
 target_link_libraries(${PROJECT_NAME}

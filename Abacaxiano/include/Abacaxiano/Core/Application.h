@@ -9,6 +9,7 @@ namespace abx {
 	public:
 		Application();
 		virtual ~Application();
+		//TODO: No copy and no move
 
 		void Run();
 	private:
