@@ -42,3 +42,24 @@ target_compile_definitions(${PROJECT_NAME}
     $<$<CONFIG:Release>:NDEBUG>
     $<$<CONFIG:Dist>:DIST>
 )
+
+# Function to group files by their directory structure
+function(group_sources_by_folder)
+    set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+    foreach(file IN LISTS ARGN)
+        # Get the directory of the file
+        get_filename_component(dir ${file} DIRECTORY)
+
+        # Make the path relative to the project directory
+        string(REPLACE "${PROJECT_SOURCE_DIR}/" "" dir ${dir})
+        
+        # Replace forward slashes with backslashes for Visual Studio compatibility
+        string(REPLACE "/" "\\" dir ${dir})
+
+        # Group files by this relative directory
+        source_group(${dir} FILES ${file})
+    endforeach()
+endfunction()
+
+# Group the source files
+group_sources_by_folder(${CPP_FILES} ${HEADER_FILES})
