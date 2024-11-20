@@ -7,6 +7,7 @@ namespace abx {
 	class Logger {
 	public:
 		Logger();
+		//TODO: No copy and no move
 
 		spdlog::logger& CoreLog();
 		spdlog::logger& ClientLog();
