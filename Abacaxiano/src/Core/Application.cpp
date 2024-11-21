@@ -18,8 +18,9 @@ namespace abx {
 		while (!m_window.IsDone()){
 			m_window.Update();
 
+			//Render cycle
 			m_window.Clear();
-
+			//Draw here
 			m_window.Display();
 		}
 	}
