@@ -3,6 +3,7 @@
 #include "Core/Application.h"
 
 #ifdef ABX_WINDOWS
+
 	int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, int nCmdShow) {
 	#ifndef ABX_DIST
 	#define ABX_CONSOLE
@@ -26,6 +27,16 @@
 		FreeConsole();
 	#endif
 }
-#elif
-	#error "Abacaxiano only supports Windows for now."
+#elif (defined(ABX_LINUX))
+	int main(int argc, char** argv) {
+		abx::Application* app = abx::CreateApplication();
+		app->Run();
+		delete app;
+	}
+#elif (defined(ABX_MAC)
+	int main(int argc, char** argv) {
+		abx::Application* app = abx::CreateApplication();
+		app->Run();
+		delete app;
+	}
 #endif
