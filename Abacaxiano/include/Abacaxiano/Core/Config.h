@@ -53,31 +53,4 @@
 
 #define ABX_EXIT_PROGRAM exit(1);
 
-// Alias for types
-#include <cstdint>
-using int8   = std::int8_t;
-using int16  = std::int16_t;
-using int32  = std::int32_t;
-using int64  = std::int64_t;
-using uint8  = std::uint8_t;
-using uint16 = std::uint16_t;
-using uint32 = std::uint32_t;
-using uint64 = std::uint64_t;
-using uint   = std::uint32_t;
-using char8  = char;
-using char16 = char16_t;
-using char32 = char32_t;
-
-//Memory
-#include <memory>
-template <typename T>
-using Ref = std::shared_ptr<T>;
-template <typename T>
-using WeakRef = std::weak_ptr<T>;
-template <typename T>
-using Unique = std::unique_ptr<T>;
-
-template <typename T, typename... Args>
-auto MakeRef(Args&&... args) { return std::make_shared<T>(std::forward<Args>(args)...); }
-template <typename T, typename... Args>
-auto MakeUnique(Args&&... args) { return std::make_unique<T>(std::forward<Args>(args)...); }
+#include "Core/Utilities.h"

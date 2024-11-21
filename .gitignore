@@ -13,8 +13,9 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
-#ignore folers called build
+#ignore folders called build and everything in them
 build/
+build-vs2022/
 
 # Mono auto generated files
 mono_crash.*

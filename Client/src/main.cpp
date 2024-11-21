@@ -6,15 +6,18 @@ public:
 	Client() {
 		ABX_LOG_INFO("Client initialized.");
 
-		//Testing events
-		abx::EventRef enterEvent = MakeEvent("Enter Event", sf::Event::EventType::KeyPressed, sf::Keyboard::Key::Enter, abx::EventMethod::OS);
-		m_events.Add(enterEvent, [this](const sf::Event& l_event) {
-			ABX_LOG_INFO("Test event triggered.");
-		});
+		abx::Context::window->SetTitle("PeepeePoopoo");
+		abx::Context::window->SetSize(1920, 1080);
 
-		abx::EventRef mouseMoveEvent = MakeEvent("Mouse Move Event", sf::Event::EventType::MouseMoved, abx::EventMethod::OS);
-		m_events.Add(mouseMoveEvent, [this](const sf::Event& l_event) {
-			ABX_LOG_INFO(std::string("Mouse moved: " + std::to_string(l_event.mouseMove.x) + ", " + std::to_string(l_event.mouseMove.y)).c_str());
+		//Testing events
+		abx::EventRef enterEvent = abx::MakeEvent("Enter Event", sf::Event::EventType::KeyPressed, sf::Keyboard::Key::Escape, abx::EventMethod::OS);
+		m_events.Add(enterEvent, [this](const sf::Event& l_event) {
+			abx::Context::window->Terminate();
+			});
+
+		abx::EventRef fullScreenEvent = abx::MakeEvent("Full Screen Event", sf::Event::EventType::KeyPressed, sf::Keyboard::Enter, abx::EventMethod::OS);
+		m_events.Add(fullScreenEvent, [this](const sf::Event& l_event) {
+			abx::Context::window->ToggleFullscreen();
 			});
 
 	}
