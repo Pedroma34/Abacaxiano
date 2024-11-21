@@ -17,6 +17,9 @@
 build/
 build-vs2022/
 
+#ignore .vscodes folder
+.vscode/
+
 # Mono auto generated files
 mono_crash.*
 
